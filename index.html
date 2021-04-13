@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles.css">
-    <title>Intention Timer</title>
-  </head>
-  <body>
-    <nav class="nav-bar" id="navBar">Intention Timer</nav>
-    <main class="main-page" id="mainPage">
-      <h3 class="header" id="header">New Activity</h3>
-      <section class="new-activity" id="newActivity">
-       <p class="categories" id="categories">Select a category:</p>
-       <button class="study-category" id="studyCategory">Study</button>
-       <button class="meditate-category" id="meditateCategory">Meditate</button>
-       <button class="exercise-category" id="exerciseCategory">Exercise</button>
-       <label for="goals">What would you like accomplish during this time?</label>
-       <input type="text" class="goals" id="goals"></input>
-       <label for="minutes">Minutes</label>
-        <input type="text" class="minutes" id="minutes"></input>
-        <label for="seconds">Seconds</label>
-        <input type="text" class="seconds" id="seconds"></input>
-        <button class="start-activity" id="startactivity">Start Activity</button>
-      </section>
 
-    </main>
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Intention Timer</title>
+</head>
+
+<body>
+  <nav class="nav-bar" id="navBar">INTENTION TIMER</nav>
+  <main class="main-page" id="mainPage">
+    <h3 class="header" id="header">New Activity</h3>
+    <form class="new-activity" id="newActivity">
+      <p class="categories" id="categories">Select a category:</p>
+      <button class="study-category" id="studyCategory">Study</button>
+      <button class="meditate-category" id="meditateCategory">Meditate</button>
+      <button class="exercise-category" id="exerciseCategory">Exercise</button>
+      <label for="goals">What would you like accomplish during this time?</label>
+      <input type="text" class="goals" id="goals"></input>
+      <label for="minutes">Minutes</label>
+      <input type="text" class="minutes" id="minutes"></input>
+      <label for="seconds">Seconds</label>
+      <input type="text" class="seconds" id="seconds"></input>
+      <button class="start-activity" id="startactivity">Start Activity</button>
+    </form>
+    <section class="current-activity hidden" id="currentactivity">
+      <p class="display-goal" id="displayGoal"> </p>
+      <button class="start-timer" id="startTimer">START</button>
+      <button class="log-activity" id="logActivity">LOG ACTIVITY</button>
+    </section>
+    <button class="create-new-activity hidden" id="createNewActivity"></button>
+  </main>
 
   <script src="main.js"></script>
   <script src="Activity.js"></script>
 </body>
+
 </html>
