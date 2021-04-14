@@ -53,18 +53,20 @@ body {
 .left-header {
   margin: 50px 0px 10px 42px;
   font-size: 20px;
-  color: #c1b9b9;
+  color:#CBC9CF;
 }
 
 .button-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  margin: 0px 100px 30px 100px;
 }
 
 .select-category {
   margin-left: 98px;
-  color: #c1b9b9;
+  color: #CBC9CF;
   margin-top: 50px;
+  font-weight: bold;
 }
 
 /* CATEGORY BUTTONS */
@@ -126,7 +128,7 @@ body {
 }
 
 .goals {
-  width: 675px;
+  width: 728px;
   margin-top: 20px;
 }
 
@@ -170,14 +172,14 @@ body {
 .right-header {
   margin: 25px;
   font-size: 20px;
-  color: #c1b9b9;
+  color: #CBC9CF;
   margin: 50px 0px 10px 20px;
 }
 
 .right-message {
   display: flex;
   justify-content: center;
-  color: #c1b9b9;
+  color: #CBC9CF;
   text-align: center;
   font-size: 14px;
 }
