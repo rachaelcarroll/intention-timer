@@ -20,20 +20,22 @@
       <form class="new-activity-form" id="newActivityForm">
         <p class="select-category" id="selectCategory">Select a category:</p>
         <div class="button-container">
-          <button class="study-category" id="studyCategory">Study</button>
-          <button class="meditate-category" id="meditateCategory">Meditate</button>
-          <button class="exercise-category" id="exerciseCategory">Exercise</button>
+          <button class="study-button" id="studyButton">Study</button>
+          <button class="meditate-button" id="meditateButton">Meditate</button>
+          <button class="exercise-button" id="exerciseButton">Exercise</button>
         </div>
         <div class="input-container">
           <label for="goals">What would you like accomplish during this time?</label>
           <input type="text" class="goals" id="goals"></input>
+        </div>
+        <div class="time-input-container">
           <label for="minutes">Minutes</label>
           <input type="text" class="minutes" id="minutes" required></input>
           <label for="seconds">Seconds</label>
           <input type="text" class="seconds" id="seconds"></input>
         </div>
         <p class="error-message hidden" id="errorMessage">Fill up fields</p>
-        <button class="start-activity" id="startactivity">Start Activity</button>
+        <button class="start-activity" id="startactivity">START ACTIVITY</button>
       </form>
       <section class="current-activity hidden" id="currentactivity">
         <p class="display-goal" id="displayGoal"> </p>
@@ -43,7 +45,7 @@
       <button class="create-new-activity hidden" id="createNewActivity">CREATE A NEW ACTIVITY</button>
     </section>
     <section class="past-activity" id="pastActivity">
-      <h3 class="right-header" id="rightHeader">Past Activities</h3>
+      <p class="right-header" id="rightHeader">Past Activities</p>
       <p class="right-message" id="rightMessage">You haven't logged any activities yet.<br>
         complete the form to the left to get started!</p>
       <div class="activity-card hidden" id="activityCard">

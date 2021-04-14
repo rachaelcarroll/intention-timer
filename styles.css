@@ -42,17 +42,17 @@ body {
 .new-activity-form{
   background-color: #47434D;
   display: flex;
-  /* justify-content: flex-end; */
   flex-direction: column;
   width: 90%;
   height: 90%;
   margin: auto;
-  margin-bottom: 40px;
+  margin-bottom: 100px;
+  border-radius: .75%;
 }
 
 .left-header {
-  margin: 50px 0px 10px 230px;
-  font-size: x-large;
+  margin: 50px 0px 10px 42px;
+  font-size: 20px;
   color: #c1b9b9;
 }
 
@@ -69,15 +69,28 @@ body {
 
 /* CATEGORY BUTTONS */
 
-.study-category,
-.meditate-category,
-.exercise-category {
+.study-button,
+.meditate-button,
+.exercise-button {
 background-color: #47434D;
 height: 30px;
 height: 60px;
 width: 148px;
-border-color: #CBC9CF;
+border: 2px solid #CBC9CF;
+border-radius: 5%;
+color: #CBC9CF;
+font-size: 16px;
+padding: 0;
 }
+
+.study-button {
+  background-image: url(./assets/study.svg);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: 50% 20%;
+  padding-top: 2px;
+}
+
 /* FORM INPUT FIELDS */
 .goals,
 .minutes,
@@ -91,7 +104,20 @@ border-color: #CBC9CF;
 }
 .goals {
   width: 500px;
+  margin-top: 20px;
 }
+
+.input-container {
+  margin: 50px 100px;
+}
+
+.start-activity {
+  border: none;
+  border-radius: 5%;
+  height: 30px;
+  width: 150px;
+}
+
 
 
 /* RIGHT SECTION */
@@ -102,13 +128,13 @@ border-color: #CBC9CF;
   justify-content: center;
   flex-direction: column;
   align-items: center; */
-  width: 60%;
+  width: 35%;
   /* border-left: solid 4px #47434D; */
 }
 
 .right-header{
   margin: 25px;
-  font-size: x-large;
+  font-size: 20px;
   color: #c1b9b9;
   margin:50px 0px 10px 20px;
 }
