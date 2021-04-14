@@ -21,7 +21,7 @@
         <p class="select-category" id="selectCategory">Select a category:</p>
         <div class="button-container">
           <button class="study-button" id="studyButton">Study</button>
-          <button class="meditate-button" id="meditateButton">Meditate</button>
+          <button class="meditate-button " id="meditateButton">Meditate</button>
           <button class="exercise-button" id="exerciseButton">Exercise</button>
         </div>
         <div class="input-container">
@@ -29,10 +29,14 @@
           <input type="text" class="goals" id="goals"></input>
         </div>
         <div class="time-input-container">
-          <label for="minutes">Minutes</label>
-          <input type="text" class="minutes" id="minutes" required></input>
-          <label for="seconds">Seconds</label>
-          <input type="text" class="seconds" id="seconds"></input>
+          <div class="time-container">
+           <label for="minutes">Minutes</label>
+           <input type="text" class="minutes" id="minutes"></input>
+          </div>
+          <div class="time-container">
+           <label for="seconds">Seconds</label>
+           <input type="text" class="seconds" id="seconds"></input>
+          </div>
         </div>
         <p class="error-message hidden" id="errorMessage">Fill up fields</p>
         <button class="start-activity" id="startactivity">START ACTIVITY</button>

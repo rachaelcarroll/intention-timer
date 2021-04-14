@@ -103,7 +103,7 @@ padding: 0;
   width: 300px;
 }
 .goals {
-  width: 500px;
+  width: 675px;
   margin-top: 20px;
 }
 
@@ -111,13 +111,33 @@ padding: 0;
   margin: 50px 100px;
 }
 
+ .time-container {
+   display: flex;
+   flex-direction: column;
+}
+
+.time-input-container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 97px;
+  margin-right: 102px;
+  margin-top: 25px;
+}
+
+.seconds,
+.minutes {
+  margin-top: 20px;
+
+}
+
 .start-activity {
   border: none;
   border-radius: 5%;
   height: 30px;
   width: 150px;
+  margin-left: 630px;
+  margin-top: 85px;
 }
-
 
 
 /* RIGHT SECTION */
