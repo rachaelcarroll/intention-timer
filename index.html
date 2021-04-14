@@ -13,31 +13,33 @@
 <body>
   <nav class="nav-bar" id="navBar">INTENTION TIMER</nav>
   <main class="main-page" id="mainPage">
-  <form class="new-activity" id="newActivity">
-    <p class="left-header" id="leftHeader">New Activity</p>
-    <div class="button-container">
-      <p class="categories" id="categories">Select a category:</p>
-      <button class="study-category" id="studyCategory">Study</button>
-      <button class="meditate-category" id="meditateCategory">Meditate</button>
-      <button class="exercise-category" id="exerciseCategory">Exercise</button>
-      </div>
-      <div class="input-container">
-      <label for="goals">What would you like accomplish during this time?</label>
-      <input type="text" class="goals" id="goals"></input>
-      <label for="minutes">Minutes</label>
-      <input type="text" class="minutes" id="minutes" required></input>
-      <label for="seconds">Seconds</label>
-      <input type="text" class="seconds" id="seconds"></input>
-    </div>
-    <p class="error-message hidden" id="errorMessage">Fill up fields</p>
-    <button class="start-activity" id="startactivity">Start Activity</button>
-    </form>
-    <section class="current-activity hidden" id="currentactivity">
-      <p class="display-goal" id="displayGoal"> </p>
-      <button class="start-timer" id="startTimer">START</button>
-      <button class="log-activity" id="logActivity">LOG ACTIVITY</button>
+    <section class="left-section" id="left-section">
+      <p class="left-header" id="leftHeader">New Activity</p>
+      <form class="new-activity" id="newActivity">
+        <p class="categories" id="categories">Select a category:</p>
+        <div class="button-container">
+          <button class="study-category" id="studyCategory">Study</button>
+          <button class="meditate-category" id="meditateCategory">Meditate</button>
+          <button class="exercise-category" id="exerciseCategory">Exercise</button>
+        </div>
+        <div class="input-container">
+          <label for="goals">What would you like accomplish during this time?</label>
+          <input type="text" class="goals" id="goals"></input>
+          <label for="minutes">Minutes</label>
+          <input type="text" class="minutes" id="minutes" required></input>
+          <label for="seconds">Seconds</label>
+          <input type="text" class="seconds" id="seconds"></input>
+        </div>
+        <p class="error-message hidden" id="errorMessage">Fill up fields</p>
+        <button class="start-activity" id="startactivity">Start Activity</button>
+      </form>
+      <section class="current-activity hidden" id="currentactivity">
+        <p class="display-goal" id="displayGoal"> </p>
+        <button class="start-timer" id="startTimer">START</button>
+        <button class="log-activity" id="logActivity">LOG ACTIVITY</button>
+      </section>
+      <button class="create-new-activity hidden" id="createNewActivity">CREATE A NEW ACTIVITY</button>
     </section>
-    <button class="create-new-activity hidden" id="createNewActivity">CREATE A NEW ACTIVITY</button>
     <section class="past-activity" id="pastActivity">
       <h3 class="right-header" id="rightHeader">Past Activities</h3>
       <p class="right-message" id="rightMessage">You haven't logged any activities yet.<br>

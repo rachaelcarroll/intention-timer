@@ -5,6 +5,7 @@ body {
   margin: 0;
   height: 100vh;
 }
+
 /* NAVIGATE BAR */
 .nav-bar {
   height: 80px;
@@ -15,6 +16,7 @@ body {
   font-size: xx-large;
   color:#c1b9b9;
 }
+
 /* MAIN PAGE */
 .main-page {
   display:flex;
@@ -22,7 +24,14 @@ body {
   height: 100%;
 }
 
-/* RIGHT SECTION */
+
+/* LEFT SECTION */
+
+.left-section {
+  display:flex;
+  flex-direction: column;
+
+}
 .new-activity{
   background-color: #47434D;
   /* display: flex;
@@ -30,9 +39,14 @@ body {
   flex-direction: column; */
   width:59%;
   height: 500px;
-  margin: 50px 30px 30px 30px;
+  margin: 0px 30px 30px 230px;
 }
 
+.left-header {
+  margin: 50px 0px 10px 230px;
+  font-size: x-large;
+  color: #c1b9b9;
+}
 /* CATEGORY BUTTONS */
 .study-category,
 .meditate-category,
@@ -40,7 +54,7 @@ body {
 background-color: #47434D;
 height: 30px;
 height: 60px;
-width: 120px;
+width: 148px;
 border-color: #CBC9CF;
 }
 /* INPUT FIELDS */
@@ -57,8 +71,7 @@ border-color: #CBC9CF;
 .goals {
   width: 500px;
 }
-
-/* LEFT SECTION */
+/* RIGHT SECTION */
 .past-activity {
   background-color:#2B2733 ;
   /* display: flex;
@@ -68,6 +81,7 @@ border-color: #CBC9CF;
   width: 30%;
   border-left: solid 4px #47434D;
 }
+
 .right-message {
   display: flex;
   justify-content: center;
@@ -77,7 +91,18 @@ border-color: #CBC9CF;
   margin: 25px;
   font-size: x-large;
   color: #c1b9b9;
+  margin:50px 0px 10px 20px;
 }
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+ .categories {
+   margin-left: 98px;
+   color: #c1b9b9;
+   margin-top: 50px;
+ }
 .hidden {
   display:none;
 }
