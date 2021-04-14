@@ -6,15 +6,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="styles.css">
   <title>Intention Timer</title>
 </head>
 
 <body>
   <nav class="nav-bar" id="navBar">INTENTION TIMER</nav>
   <main class="main-page" id="mainPage">
-    <h3 class="left-header" id="leftHeader">New Activity</h3>
-    <form class="new-activity" id="newActivity">
+  <form class="new-activity" id="newActivity">
+    <p class="left-header" id="leftHeader">New Activity</p>
+    <div class="input-container">
       <p class="categories" id="categories">Select a category:</p>
       <button class="study-category" id="studyCategory">Study</button>
       <button class="meditate-category" id="meditateCategory">Meditate</button>
@@ -22,9 +23,11 @@
       <label for="goals">What would you like accomplish during this time?</label>
       <input type="text" class="goals" id="goals"></input>
       <label for="minutes">Minutes</label>
-      <input type="text" class="minutes" id="minutes"></input>
+      <input type="text" class="minutes" id="minutes" required></input>
       <label for="seconds">Seconds</label>
       <input type="text" class="seconds" id="seconds"></input>
+      <p class="error-message" id="errorMessage">Fill up fields</p>
+    </div>
       <button class="start-activity" id="startactivity">Start Activity</button>
     </form>
     <section class="current-activity hidden" id="currentactivity">
@@ -37,9 +40,11 @@
       <h3 class="right-header" id="rightHeader">Past Activities</h3>
       <p class="right-message" id="rightMessage">You haven't logged any activities yet.<br>
         complete the form to the left to get started!</p>
-      <div class="activity-card" id="activityCard">
-        <h5 class="category" id="category">Study</h5>
-        <p class="timer" id="timer"><span class="minute-num" id="minuteNum"> 15 </span> MIN <span class="seconds-num" id="secondsNum"> 0 </span> SECONDS </p>
+      <div class="activity-card hidden" id="activityCard">
+        <div class="card" id="card">
+          <h5 class="category" id="category">Study</h5>
+          <p class="timer" id="timer"><span class="minute-num" id="minuteNum"> 15 </span> MIN <span class="seconds-num" id="secondsNum"> 0 </span> SECONDS </p>
+        </div>
         <p class="past-goal" id="pastGoal"> Breathing </p>
       </div>
 
