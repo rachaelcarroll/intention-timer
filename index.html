@@ -15,20 +15,22 @@
   <main class="main-page" id="mainPage">
   <form class="new-activity" id="newActivity">
     <p class="left-header" id="leftHeader">New Activity</p>
-    <div class="input-container">
+    <div class="button-container">
       <p class="categories" id="categories">Select a category:</p>
       <button class="study-category" id="studyCategory">Study</button>
       <button class="meditate-category" id="meditateCategory">Meditate</button>
       <button class="exercise-category" id="exerciseCategory">Exercise</button>
+      </div>
+      <div class="input-container">
       <label for="goals">What would you like accomplish during this time?</label>
       <input type="text" class="goals" id="goals"></input>
       <label for="minutes">Minutes</label>
       <input type="text" class="minutes" id="minutes" required></input>
       <label for="seconds">Seconds</label>
       <input type="text" class="seconds" id="seconds"></input>
-      <p class="error-message" id="errorMessage">Fill up fields</p>
     </div>
-      <button class="start-activity" id="startactivity">Start Activity</button>
+    <p class="error-message hidden" id="errorMessage">Fill up fields</p>
+    <button class="start-activity" id="startactivity">Start Activity</button>
     </form>
     <section class="current-activity hidden" id="currentactivity">
       <p class="display-goal" id="displayGoal"> </p>
