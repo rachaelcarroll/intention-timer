@@ -68,32 +68,49 @@ body {
 }
 
 /* CATEGORY BUTTONS */
-.study-button,
-.meditate-button,
-.exercise-button {
+.study-button {
   background-color: #47434D;
-  /* height: 30px; */
   height: 60px;
   width: 148px;
   border: 2px solid #CBC9CF;
   border-radius: 5%;
   color: #CBC9CF;
   font-size: 16px;
-  padding: 0;
+  background-image: url(./assets/study.svg);
+  background-position: top;
+  padding-top: 33px;
+  background-repeat: no-repeat;
+  background-size: 30px;
 }
 
-.study-button {
-  background-image: url(./assets/study.svg);
-    background-repeat: no-repeat;
-    background-size: 30px;
-    /* background-position: 50% 20%; */
-    /* padding-top: 2px; */
-    /* text-align-last: center; */
-    background-position: top;
-    /* text-align-last: end; */
-    /* position: relative; */
-    /* padding: 33px; */
-    padding-top: 33px;
+.meditate-button{
+  background-color: #47434D;
+  height: 60px;
+  width: 148px;
+  border: 2px solid #CBC9CF;
+  border-radius: 5%;
+  color: #CBC9CF;
+  font-size: 16px;
+  background-image: url(./assets/meditate.svg);
+  background-position: top;
+  padding-top: 33px;
+  background-repeat: no-repeat;
+  background-size: 30px;
+}
+
+.exercise-button {
+  background-color: #47434D;
+  height: 60px;
+  width: 148px;
+  border: 2px solid #CBC9CF;
+  border-radius: 5%;
+  color: #CBC9CF;
+  font-size: 16px;
+  background-image: url(./assets/exercise.svg);
+  background-position: top;
+  padding-top: 33px;
+  background-repeat: no-repeat;
+  background-size: 30px;
 }
 
 /* FORM INPUT FIELDS */
