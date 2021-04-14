@@ -1,0 +1,17 @@
+/* BODY SECTION */
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color:#2B2733;
+  margin: 0;
+  height: 100vh;
+}
+/* NAVIGATE BAR */
+.nav-bar {
+  height: 80px;
+  background-color:#47434D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  color:#c1b9b9;
+}
