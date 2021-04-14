@@ -32,3 +32,28 @@ body {
   height: 500px;
   margin: 50px 30px 30px 30px;
 }
+
+/* CATEGORY BUTTONS */
+.study-category,
+.meditate-category,
+.exercise-category {
+background-color: #47434D;
+height: 30px;
+height: 60px;
+width: 120px;
+border-color: #CBC9CF;
+}
+/* INPUT FIELDS */
+.goals,
+.minutes,
+.seconds {
+  background-color: #47434D;
+  border-bottom-color: #c1b9b9;
+  border-top-style: hidden;
+  border-left-style: hidden;
+  border-right-style: hidden;
+  width: 300px;
+}
+.goals {
+  width: 500px;
+}
