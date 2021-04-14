@@ -15,3 +15,20 @@ body {
   font-size: xx-large;
   color:#c1b9b9;
 }
+/* MAIN PAGE */
+.main-page {
+  display:flex;
+  justify-content:space-around;
+  height: 100%;
+}
+
+/* RIGHT SECTION */
+.new-activity{
+  background-color: #47434D;
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column; */
+  width:59%;
+  height: 500px;
+  margin: 50px 30px 30px 30px;
+}
