@@ -22,7 +22,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: xx-large;
-  color: #c1b9b9;
+  color:#CBC9CF;
 }
 
 /* MAIN PAGE */
@@ -120,7 +120,7 @@ body {
 .minutes,
 .seconds {
   background-color: #47434D;
-  border-bottom-color: #c1b9b9;
+  border-bottom-color: #CBC9CF;
   border-top-style: hidden;
   border-left-style: hidden;
   border-right-style: hidden;
@@ -159,8 +159,7 @@ body {
   border-radius: 5%;
   height: 30px;
   width: 150px;
-  margin-left: 630px;
-  margin-top: 85px;
+  margin:30px 0px 30px 685px;
 }
 
 /* RIGHT SECTION */
