@@ -31,11 +31,11 @@
         <div class="time-input-container">
           <div class="time-container">
             <label for="minutes">Minutes</label>
-            <input type="text" class="minutes" id="minutes"></input>
+            <input type="number" min='0' class="minutes" id="minutes"></input>
           </div>
           <div class="time-container">
             <label for="seconds">Seconds</label>
-            <input type="text" class="seconds" id="seconds"></input>
+            <input type="number" min='0' class="seconds" id="seconds"></input>
           </div>
         </div>
         <p class="error-message" id="errorMessage"><img src="./assets/warning.svg"/>Fill up all empty fields before submitting</p>
