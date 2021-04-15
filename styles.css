@@ -1,3 +1,7 @@
+/* *{
+  border: 1px solid transparent;
+} */
+
 /* BODY SECTION */
 body {
   font-family: "Montserrat", sans-serif;
@@ -41,7 +45,7 @@ body {
   height: 90%;
   margin: auto;
   margin-bottom: 100px;
-  border-radius: .75%;
+  border-radius: 5px;
   box-shadow: 8px 8px #26222d;
 }
 
@@ -70,7 +74,7 @@ body {
   height: 60px;
   width: 148px;
   border: 2px solid #CBC9CF;
-  border-radius: 5%;
+  border-radius: 5px;
   color: #CBC9CF;
   font-size: 16px;
   background-image: url(./assets/study.svg);
@@ -80,12 +84,18 @@ body {
   background-size: 30px;
 }
 
+.study-button-active{
+  border-color: #B3FD78;
+  color: #B3FD78;
+  background-image: url(./assets/study-active.svg);
+}
+
 .meditate-button {
   background-color: #47434D;
   height: 60px;
   width: 148px;
   border: 2px solid #CBC9CF;
-  border-radius: 5%;
+  border-radius: 5px;
   color: #CBC9CF;
   font-size: 16px;
   background-image: url(./assets/meditate.svg);
@@ -95,12 +105,18 @@ body {
   background-size: 30px;
 }
 
+.meditate-button-active{
+  border-color: #C278FD;
+  color: #C278FD;
+  background-image: url(./assets/meditate-active.svg);
+}
+
 .exercise-button {
   background-color: #47434D;
   height: 60px;
   width: 148px;
   border: 2px solid #CBC9CF;
-  border-radius: 5%;
+  border-radius: 5px;
   color: #CBC9CF;
   font-size: 16px;
   background-image: url(./assets/exercise.svg);
@@ -110,6 +126,11 @@ body {
   background-size: 30px;
 }
 
+.exercise-button-active{
+  border-color: #FD8078;
+  color: #FD8078;
+  background-image: url(./assets/exercise-active.svg);
+}
 /* FORM INPUT FIELDS */
 .goals,
 .minutes,
@@ -194,9 +215,10 @@ img {
   width: 450px;
   height: 85px;
   margin: 10px 50px 10px 20px;
-  border-radius: 3%;
+  border-radius: 5px;
   background-color: #46424D;
   box-shadow: 8px 8px #26222d;
+  padding: 1em;
 }
 
 .completed-study {
