@@ -5,7 +5,7 @@ body {
   color: #CBC9CF;
   font-weight: 300;
   margin: 0px;
-  height: 100%;
+  height: 100vh;
 }
 
 /* NAVIGATE BAR */
@@ -16,7 +16,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: xx-large;
-  color:#CBC9CF;
+  color: #CBC9CF;
 }
 
 /* MAIN PAGE */
@@ -47,7 +47,7 @@ body {
 .left-header {
   margin: 50px 0px 10px 51px;
   font-size: 20px;
-  color:#CBC9CF;
+  color: #CBC9CF;
 }
 
 .button-container {
@@ -79,7 +79,7 @@ body {
   background-size: 30px;
 }
 
-.meditate-button{
+.meditate-button {
   background-color: #47434D;
   height: 60px;
   width: 148px;
@@ -154,16 +154,19 @@ body {
   border-radius: 5%;
   height: 30px;
   width: 150px;
-  margin:30px 0px 30px 685px;
+  margin: 30px 0px 30px 685px;
 }
- .error-message {
-   margin: 20px 0px 0px 100px;
- }
 
- img {
-   height: 20px;
-   margin-right: 5px;
- }
+.error-message {
+  margin: 20px 0px 0px 100px;
+  color: #EFB7EC;
+}
+
+img {
+  height: 20px;
+  margin-right: 5px;
+}
+
 /* RIGHT SECTION */
 .past-activity {
   background-color: #2B2733;
@@ -183,6 +186,43 @@ body {
   color: #CBC9CF;
   text-align: center;
   font-size: 14px;
+}
+
+.activity-card {
+  border: solid 1px red;
+  width: 350px;
+  margin: 10px 20px 10px 20px;
+  border-radius: 3%;
+  background-color: #46424D;
+}
+
+.completed-study {
+  border-right: 5px solid #B3FD78;
+  margin-right: 10px;
+}
+
+.completed-exercise {
+  border-right: 5px solid #FD8078;
+  margin-right: 10px;
+}
+
+.completed-meditate {
+  border-right: 5px solid #C278FD;
+  margin-right: 10px;
+}
+
+.category {
+  margin: 8px 0px 0px 8px;
+  font-weight: bold;
+  font-size: inherit;
+}
+
+.timer {
+  margin: 0px 0px 0px 8px;
+}
+
+.past-goal {
+  margin: 8px 0px 5px 8px;
 }
 
 .hidden {
