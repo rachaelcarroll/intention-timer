@@ -7,4 +7,16 @@ class Activity {
     this.completed = null;
     this.id = Date.now();
   }
+
+  countdown(){
+
+  }
+
+  markComplete(){
+
+  }
+
+  saveToStorage(){
+    
+  }
 }
