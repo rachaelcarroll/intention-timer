@@ -49,11 +49,11 @@
   function checkInputs() {
     if (goalInput.value === "") {
       descriptionError.classList.remove('hidden')
-      console.log(goalInput.value)
     }
-
-
-
-    console.log(minutesInput.value);
-    console.log(secondsInput.value)
+    if (minutesInput.value === "" && secondsInput.value === "") {
+      timeError.classList.remove('hidden')
+    }
+    if (!studyBtn.checked || !meditateBtn.checked || !exerciseBtn.checked) {
+      categoryError.classList.remove('hidden')
+    }
   }
