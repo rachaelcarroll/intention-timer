@@ -5,6 +5,6 @@ class Activity {
     this.minutes = minutes;
     this.seconds = seconds;
     this.completed = null;
-    this.id = date.now;
+    this.id = Date.now();
   }
 }
