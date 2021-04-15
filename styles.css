@@ -42,6 +42,7 @@ body {
   margin: auto;
   margin-bottom: 100px;
   border-radius: .75%;
+  box-shadow: 8px 8px #26222d;
 }
 
 .left-header {
@@ -189,11 +190,13 @@ img {
 }
 
 .activity-card {
-  border: solid 1px red;
-  width: 350px;
-  margin: 10px 20px 10px 20px;
+  /* border: solid 1px red; */
+  width: 450px;
+  height: 85px;
+  margin: 10px 50px 10px 20px;
   border-radius: 3%;
   background-color: #46424D;
+  box-shadow: 8px 8px #26222d;
 }
 
 .completed-study {
