@@ -47,7 +47,10 @@
     event.preventDefault()
     var category = checkCategory();
     checkInputs(category);
-    currentActivity = new Activity(category, goalInput.value, minutesInput.value, secondsInput.value)
+    if(category !== '' && goalInput.value !== '' && minutesInput.value !== '' && secondsInput.value !== '') {
+      currentActivity = new Activity(category, goalInput.value, minutesInput.value, secondsInput.value)
+    }
+    // currentActivity = new Activity(category, goalInput.value, minutesInput.value, secondsInput.value)
     console.log(currentActivity)
   }
 
@@ -74,4 +77,4 @@
     } else {
       return 'no category selected'
     }
-  }  
+  }
