@@ -1,5 +1,5 @@
 /* *{
-  border: 1px solid transparent;
+  border: 1px solid white;
 } */
 
 /* BODY SECTION */
@@ -34,7 +34,8 @@ body {
 .left-section {
   display: flex;
   flex-direction: column;
-  border-right: solid 4px #47434D;
+  width: 65%;
+  /* border-right: solid 4px #47434D; */
 }
 
 .new-activity-form {
@@ -192,6 +193,7 @@ img {
 /* RIGHT SECTION */
 .past-activity {
   background-color: #2B2733;
+  border-left: solid 4px #47434D;
   width: 35%;
 }
 
@@ -249,7 +251,24 @@ img {
 .past-goal {
   margin: 8px 0px 5px 8px;
 }
+/* Current Activity */
+.current-activity {
+  background-color: #47434D;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  margin-bottom: 100px;
+  border-radius: 5px;
+  box-shadow: 8px 8px #26222d;
+}
 
+.start-timer {
+  height: 50%;
+  width: 41%;
+  border-radius: 100%;
+}
 .hidden {
   display: none;
 }

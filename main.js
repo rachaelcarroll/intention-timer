@@ -10,15 +10,15 @@
   var descriptionError = document.getElementById('descriptionError')
   var timeError = document.getElementById('timeError')
   var startActivityBtn = document.getElementById('startActivity')
-
   var currentActivity = null;
-  // var savedActivities = []
+  var savedActivities = [];
+
   // EVENT LISTENERS //
   categoryContainer.addEventListener('click', changeColor)
   startActivityBtn.addEventListener('click', startActivity)
 
   // EVENT HANDLERS AND GLOBAL FUNCTIONS//
-  function changeColor(event) {
+  function changeColor() {
     event.preventDefault();
     if (event.target.id === 'studyButton') {
       addColor(studyBtn, 'study-button-active')
@@ -33,7 +33,7 @@
       removeColor(meditateBtn, 'meditate-button-active')
       removeColor(studyBtn, 'study-button-active')
     }
-    category = event.target.id
+      category = event.target.id
   }
 
   function addColor(button, activeClass) {
@@ -46,19 +46,37 @@
 
   function startActivity() {
     event.preventDefault()
-    checkInputs()
-    currentActivity = new Activity(category.value, goalInput.value, minutesInput.value, secondsInput.value)
+    var category = checkCategory();
+    checkInputs(category);
+    if(category !== '' && goalInput.value !== '' && minutesInput.value !== '' && secondsInput.value !== '') {
+      currentActivity = new Activity(category, goalInput.value, minutesInput.value, secondsInput.value)
+    }
+    savedActivities.push(currentActivity);
     console.log(currentActivity)
+    console.log(savedActivities)
   }
 
-  function checkInputs() {
+  function checkInputs(category) {
     if (goalInput.value === "") {
       descriptionError.classList.remove('hidden')
     }
     if (minutesInput.value === "" && secondsInput.value === "") {
       timeError.classList.remove('hidden')
     }
-    if (category === '') {
+    if (category === 'no category selected') {
       categoryError.classList.remove('hidden')
+    }
+  }
+
+  function checkCategory() {
+    event.preventDefault();
+    if (studyBtn.classList.contains('study-button-active')) {
+      return 'Study'
+    } else if (meditateBtn.classList.contains('meditate-button-active')) {
+      return 'Meditate'
+    } else if (exerciseBtn.classList.contains("exercise-button-active")) {
+      return 'Exercise'
+    } else {
+      return 'no category selected'
     }
   }
