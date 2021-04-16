@@ -10,7 +10,7 @@
   var descriptionError = document.getElementById('descriptionError')
   var timeError = document.getElementById('timeError')
   var startActivityBtn = document.getElementById('startActivity')
-
+  var category = null;
   var currentActivity = null;
   // var savedActivities = []
   // EVENT LISTENERS //
@@ -33,7 +33,7 @@
       removeColor(meditateBtn, 'meditate-button-active')
       removeColor(studyBtn, 'study-button-active')
     }
-    category = event.target.id
+      category = event.target
   }
 
   function addColor(button, activeClass) {
