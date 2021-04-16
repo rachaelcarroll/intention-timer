@@ -10,13 +10,16 @@
   var descriptionError = document.getElementById('descriptionError')
   var timeError = document.getElementById('timeError')
   var startActivityBtn = document.getElementById('startActivity')
+
+  var currentActivity = null;
+  // var savedActivities = []
   // EVENT LISTENERS //
   categoryContainer.addEventListener('click', changeColor)
   startActivityBtn.addEventListener('click', startActivity)
 
   // EVENT HANDLERS AND GLOBAL FUNCTIONS//
   function changeColor(event) {
-    event.preventDefault()
+    event.preventDefault();
     if (event.target.id === 'studyButton') {
       addColor(studyBtn, 'study-button-active')
       removeColor(exerciseBtn, 'exercise-button-active')
@@ -30,6 +33,7 @@
       removeColor(meditateBtn, 'meditate-button-active')
       removeColor(studyBtn, 'study-button-active')
     }
+    category = event.target.id
   }
 
   function addColor(button, activeClass) {
@@ -40,10 +44,11 @@
     button.classList.remove(activeClass)
   }
 
-
   function startActivity() {
     event.preventDefault()
     checkInputs()
+    currentActivity = new Activity(category.value, goalInput.value, minutesInput.value, secondsInput.value)
+    console.log(currentActivity)
   }
 
   function checkInputs() {
@@ -53,7 +58,7 @@
     if (minutesInput.value === "" && secondsInput.value === "") {
       timeError.classList.remove('hidden')
     }
-    if (!studyBtn.checked || !meditateBtn.checked || !exerciseBtn.checked) {
+    if (category === '') {
       categoryError.classList.remove('hidden')
     }
   }
