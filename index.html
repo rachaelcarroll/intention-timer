@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -9,7 +8,6 @@
   <link rel="stylesheet" href="styles.css">
   <title>Intention Timer</title>
 </head>
-
 <body>
   <nav class="nav-bar" id="navBar">INTENTION TIMER</nav>
   <main class="main-page" id="mainPage">
@@ -17,7 +15,7 @@
       <div class="header" id="header">
         <p class="left-header" id="leftHeader">New Activity</p>
       </div>
-      <form class="new-activity-form" id="newActivityForm">
+      <form class="new-activity-form hidden" id="newActivityForm">
         <p class="select-category" id="selectCategory">Select a category:</p>
         <article class="button-container" id="buttonContainer">
           <button class="study-button" id="studyButton" value="Study">Study</button>
@@ -43,7 +41,7 @@
         <p class="error-message hidden" id="timeError"><img src="./assets/warning.svg"/>Time input is required</p>
         <button class="start-activity" id="startActivity">START ACTIVITY</button>
       </form>
-      <section class="current-activity hidden" id="currentactivity">
+      <section class="current-activity" id="currentactivity">
         <p class="display-goal" id="displayGoal"> </p>
         <button class="start-timer" id="startTimer">START</button>
         <button class="log-activity" id="logActivity">LOG ACTIVITY</button>
@@ -61,7 +59,6 @@
         </div>
         <p class="past-goal" id="pastGoal"> Breathing </p>
       </div>
-
     </section>
   </main>
 
