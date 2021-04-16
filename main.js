@@ -11,7 +11,8 @@
   var timeError = document.getElementById('timeError')
   var startActivityBtn = document.getElementById('startActivity')
   var currentActivity = null;
-  // var savedActivities = []
+  var savedActivities = [];
+
   // EVENT LISTENERS //
   categoryContainer.addEventListener('click', changeColor)
   startActivityBtn.addEventListener('click', startActivity)
@@ -50,8 +51,9 @@
     if(category !== '' && goalInput.value !== '' && minutesInput.value !== '' && secondsInput.value !== '') {
       currentActivity = new Activity(category, goalInput.value, minutesInput.value, secondsInput.value)
     }
-    // currentActivity = new Activity(category, goalInput.value, minutesInput.value, secondsInput.value)
+    savedActivities.push(currentActivity);
     console.log(currentActivity)
+    console.log(savedActivities)
   }
 
   function checkInputs(category) {
