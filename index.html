@@ -19,27 +19,29 @@
       </div>
       <form class="new-activity-form" id="newActivityForm">
         <p class="select-category" id="selectCategory">Select a category:</p>
-        <div class="button-container">
-          <button class="study-button" id="studyButton">Study</button>
-          <button class="meditate-button " id="meditateButton">Meditate</button>
-          <button class="exercise-button" id="exerciseButton">Exercise</button>
-        </div>
+        <article class="button-container" id="buttonContainer">
+          <button class="study-button" id="studyButton" value="Study">Study</button>
+          <button class="meditate-button " id="meditateButton" value="Meditation">Meditate</button>
+          <button class="exercise-button" id="exerciseButton" value="Exercise">Exercise</button>
+        </article>
+        <p class="error-message hidden" id="categoryError"><img class="error-image" src="./assets/warning.svg">A category is required</p>
         <div class="input-container">
           <label for="goals">What would you like accomplish during this time?</label>
-          <input type="text" class="goals" id="goals"></input>
+          <input type="text" class="goals" id="goals" value=""></input>
         </div>
+        <p class="error-message hidden" id="descriptionError"><img class="error-image" src="./assets/warning.svg">A description is required</p>
         <div class="time-input-container">
           <div class="time-container">
             <label for="minutes">Minutes</label>
-            <input type="text" class="minutes" id="minutes"></input>
+            <input type="number" min='0' class="minutes" id="minutes" value= ""></input>
           </div>
           <div class="time-container">
             <label for="seconds">Seconds</label>
-            <input type="text" class="seconds" id="seconds"></input>
+            <input type="number" min='0' class="seconds" id="seconds" value=""></input>
           </div>
         </div>
-        <p class="error-message" id="errorMessage"><img src="./assets/warning.svg"/>Fill up all empty fields before submitting</p>
-        <button class="start-activity" id="startactivity">START ACTIVITY</button>
+        <p class="error-message hidden" id="timeError"><img src="./assets/warning.svg"/>Time input is required</p>
+        <button class="start-activity" id="startActivity">START ACTIVITY</button>
       </form>
       <section class="current-activity hidden" id="currentactivity">
         <p class="display-goal" id="displayGoal"> </p>
