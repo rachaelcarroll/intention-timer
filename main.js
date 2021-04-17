@@ -10,12 +10,20 @@
   var descriptionError = document.getElementById('descriptionError')
   var timeError = document.getElementById('timeError')
   var startActivityBtn = document.getElementById('startActivity')
+  var newActivityForm = document.getElementById('newActivityForm')
+  var currentActivityForm = document.getElementById('currentActivityForm')
+  var countdownMin = document.getElementById('minutesCountdown')
+  var countdownSec = document.getElementById('secondsCountdown')
+  var formHeader = document.getElementById('leftHeader')
+  var displayGoal = document.getElementById('displayGoal')
+  // var startTimer = document.getElementById('startTimer')
   var currentActivity = null;
   var savedActivities = [];
 
   // EVENT LISTENERS //
   categoryContainer.addEventListener('click', changeColor)
   startActivityBtn.addEventListener('click', startActivity)
+  // startTimer.addEventListener('click', startCountdown)
 
   // EVENT HANDLERS AND GLOBAL FUNCTIONS//
   function changeColor() {
@@ -50,11 +58,35 @@
     checkInputs(category);
     if(category !== '' && goalInput.value !== '' && minutesInput.value !== '' && secondsInput.value !== '') {
       currentActivity = new Activity(category, goalInput.value, minutesInput.value, secondsInput.value)
+      savedActivities.push(currentActivity);
+      changeActivityView();
+      changeTimerColor();
     }
-    savedActivities.push(currentActivity);
     console.log(currentActivity)
     console.log(savedActivities)
   }
+
+  function changeActivityView() {
+    newActivityForm.classList.add('hidden')
+    currentActivityForm.classList.remove('hidden')
+    formHeader.innerText = "Current Activity";
+    displayGoal.innerText = goalInput.value;
+    if(minutesInput.value < 10 || secondsInput.value < 10){
+      countdownSec.innerText = `0${secondsInput.value}`;
+      countdownMin.innerText = `0${minutesInput.value}`;
+  }
+}
+
+function changeTimerColor() {
+  if(currentActivity.category === "Study") {
+     startTimer.classList.add("start-study-button")
+   } else if (currentActivity.category === "Meditate") {
+     startTimer.classList.add("start-meditate-button")
+   } else if (currentActivity.category === "Exercise") {
+     startTimer.classList.add("start-exercise-button")
+   }
+ };
+
 
   function checkInputs(category) {
     if (goalInput.value === "") {
