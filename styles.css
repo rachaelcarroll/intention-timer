@@ -141,12 +141,12 @@ body {
   border-top-style: hidden;
   border-left-style: hidden;
   border-right-style: hidden;
-  width: 300px;
+  width: 250px;
   color: white;
 }
 
 .goals {
-  width: 728px;
+  width: 543px;
   margin-top: 20px;
 }
 
@@ -177,7 +177,7 @@ body {
   border-radius: 5px;
   height: 30px;
   width: 150px;
-  margin: 30px 0px 30px 685px;
+  margin: 60px 0px 50px 500px;
 }
 
 .error-message {
