@@ -290,6 +290,18 @@ img {
   background: transparent;
 }
 
+.start-study-button{
+  border-color: #B3FD78;
+}
+
+.start-meditate-button{
+  border-color: #C278FD;
+}
+
+.start-exercise-button{
+  border-color: #FD8078;
+}
+
 .log-activity {
   border: none;
   border-radius: 5px;

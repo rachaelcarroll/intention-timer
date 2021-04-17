@@ -15,6 +15,7 @@
   var countdownMin = document.getElementById('minutesCountdown')
   var countdownSec = document.getElementById('secondsCountdown')
   var formHeader = document.getElementById('leftHeader')
+  var displayGoal = document.getElementById('displayGoal')
   // var startTimer = document.getElementById('startTimer')
   var currentActivity = null;
   var savedActivities = [];
@@ -59,6 +60,7 @@
       currentActivity = new Activity(category, goalInput.value, minutesInput.value, secondsInput.value)
       savedActivities.push(currentActivity);
       changeActivityView();
+      changeTimerColor();
     }
     console.log(currentActivity)
     console.log(savedActivities)
@@ -68,20 +70,22 @@
     newActivityForm.classList.add('hidden')
     currentActivityForm.classList.remove('hidden')
     formHeader.innerText = "Current Activity";
-    countdownMin.innerText = minutesInput.value;
+    displayGoal.innerText = goalInput.value;
     if(minutesInput.value < 10 || secondsInput.value < 10){
       countdownSec.innerText = `0${secondsInput.value}`;
       countdownMin.innerText = `0${minutesInput.value}`;
   }
 }
 
-//reassign innertext of counter to user minutes/seconds input
-//change new activity header to current activity header
-
-
-
-
-
+function changeTimerColor() {
+  if(currentActivity.category === "Study") {
+     startTimer.classList.add("start-study-button")
+   } else if (currentActivity.category === "Meditate") {
+     startTimer.classList.add("start-meditate-button")
+   } else if (currentActivity.category === "Exercise") {
+     startTimer.classList.add("start-exercise-button")
+   }
+ };
 
 
   function checkInputs(category) {
