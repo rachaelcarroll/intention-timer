@@ -42,8 +42,8 @@ body {
   background-color: #47434D;
   display: flex;
   flex-direction: column;
-  width: 90%;
-  height: 90%;
+  width: 750px;
+  height: 750px;
   margin: auto;
   margin-bottom: 100px;
   border-radius: 5px;
@@ -174,7 +174,7 @@ body {
 
 .start-activity {
   border: none;
-  border-radius: 5%;
+  border-radius: 5px;
   height: 30px;
   width: 150px;
   margin: 30px 0px 30px 685px;
@@ -215,7 +215,7 @@ img {
 .activity-card {
   /* border: solid 1px red; */
   width: 450px;
-  height: 85px;
+  height: 70px;
   margin: 10px 50px 10px 20px;
   border-radius: 5px;
   background-color: #46424D;
@@ -239,36 +239,70 @@ img {
 }
 
 .category {
-  margin: 8px 0px 0px 8px;
-  font-weight: bold;
+  margin: 0px 0px 0px 8px;
+  font-weight: bolder;
   font-size: inherit;
 }
 
-.timer {
+.time-logged {
   margin: 0px 0px 0px 8px;
 }
 
 .past-goal {
-  margin: 8px 0px 5px 8px;
+  margin: 8px 0px 10px 8px;
 }
 /* Current Activity */
 .current-activity {
   background-color: #47434D;
   display: flex;
   flex-direction: column;
-  width: 90%;
-  height: 90%;
+  align-items: center;
+  width: 750px;
+  height: 750px;
   margin: auto;
   margin-bottom: 100px;
   border-radius: 5px;
   box-shadow: 8px 8px #26222d;
 }
 
-.start-timer {
-  height: 50%;
-  width: 41%;
-  border-radius: 100%;
+.display-goal {
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 60px 0px 0px 0px;
 }
+
+.timer {
+  display: flex;
+}
+
+.countdown {
+  font-size: 65px;
+  font-weight: 900;
+  margin: 0px 0px 25px 0px;
+}
+.start-timer {
+  font-size: 20px;
+  color: white;
+  height: 200px;
+  width: 200px;
+  border: 2.5px solid white;
+  border-radius: 100%;
+  background: transparent;
+}
+
+.log-activity {
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  width: 200px;
+  margin: 30px 0px 50px 0px;
+}
+/*
+.current-activity-container {
+  margin: 70px 0px 70px 0px;
+  display: flex;
+  flex-direction: column;
+} */
 .hidden {
   display: none;
 }

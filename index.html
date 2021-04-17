@@ -42,9 +42,15 @@
         <button class="start-activity" id="startActivity">START ACTIVITY</button>
       </form>
       <section class="current-activity" id="currentactivity">
-        <p class="display-goal" id="displayGoal"> </p>
+        <p class="display-goal" id="displayGoal"> Deep Breathing </p>
+        <div class="timer" id="timer">
+            <p class="countdown" id="minutesCountdown">00</p>
+            <p class="countdown">:</p>
+            <p class="countdown" id="secondsCountdown">00</p>
+        </div>
         <button class="start-timer" id="startTimer">START</button>
-        <button class="log-activity" id="logActivity">LOG ACTIVITY</button>
+        <button class="log-activity hidden" id="logActivity">LOG ACTIVITY</button>
+       </div>
       </section>
       <button class="create-new-activity hidden" id="createNewActivity">CREATE A NEW ACTIVITY</button>
     </section>
@@ -55,7 +61,7 @@
       <div class="activity-card" id="activityCard">
         <div class="completed-study completed-exercise  completed-meditate" id="completedActivity">
           <h5 class="category" id="category">Study</h5>
-          <p class="timer" id="timer"><span class="minute-num" id="minuteNum"> 15 </span> MIN <span class="seconds-num" id="secondsNum"> 0 </span> SECONDS </p>
+          <p class="time-logged" id="timeLogged"><span class="minute-num" id="minuteNum"> 15 </span> MIN <span class="seconds-num" id="secondsNum"> 0 </span> SECONDS </p>
         </div>
         <p class="past-goal" id="pastGoal"> Breathing </p>
       </div>
