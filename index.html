@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="styles.css">
   <title>Intention Timer</title>
 </head>
+
 <body>
   <nav class="nav-bar" id="navBar">INTENTION TIMER</nav>
   <main class="main-page" id="mainPage">
@@ -31,25 +33,25 @@
         <div class="time-input-container">
           <div class="time-container">
             <label for="minutes">Minutes</label>
-            <input type="number" min='0' max='60'class="minutes" id="minutes" value= ""></input>
+            <input type="number" min='0' max='60' class="minutes" id="minutes" value=""></input>
           </div>
           <div class="time-container">
             <label for="seconds">Seconds</label>
-            <input type="number" min='1' max= "59" class="seconds" id="seconds" value=""></input>
+            <input type="number" min='1' max="59" class="seconds" id="seconds" value=""></input>
           </div>
         </div>
-        <p class="error-message hidden" id="timeError"><img src="./assets/warning.svg"/>Time input is required</p>
+        <p class="error-message hidden" id="timeError"><img src="./assets/warning.svg" />Time input is required</p>
         <button class="start-activity" id="startActivity">START ACTIVITY</button>
       </form>
       <section class="current-activity hidden" id="currentActivityForm">
         <p class="display-goal" id="displayGoal"> Deep Breathing </p>
         <div class="timer" id="timer">
-            <p class="countdown" id="countdown"><span class="minutesCountdown" id="minutesCountdown"></span><span class='column' id='column'>:</span><span class="second-countdown" id="secondsCountdown"></span></p>
+          <p class="countdown" id="countdown"><span class="minutesCountdown" id="minutesCountdown"></span><span class='column' id='column'>:</span><span class="second-countdown" id="secondsCountdown"></span></p>
         </div>
         <button class="start-timer" id="startTimer">START</button>
         <button class="log-activity hidden" id="logActivity">LOG ACTIVITY</button>
         <button class="create-new-activity hidden" id="createNewActivity">CREATE A NEW ACTIVITY</button>
-       </div>
+        </div>
       </section>
     </section>
     <section class="past-activity" id="pastActivity">
@@ -57,7 +59,6 @@
       <p class="right-message" id="rightMessage">You haven't logged any activities yet.<br>
         complete the form to the left to get started!</p>
       <div class="activity-card hidden" id="activityCard">
-
       </div>
     </section>
   </main>
