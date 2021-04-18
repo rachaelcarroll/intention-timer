@@ -1,7 +1,6 @@
 /* *{
   border: 1px solid white;
 } */
-
 /* BODY SECTION */
 body {
   font-family: "Montserrat", sans-serif;
@@ -85,7 +84,7 @@ body {
   background-size: 30px;
 }
 
-.study-button-active{
+.study-button-active {
   border-color: #B3FD78;
   color: #B3FD78;
   background-image: url(./assets/study-active.svg);
@@ -106,7 +105,7 @@ body {
   background-size: 30px;
 }
 
-.meditate-button-active{
+.meditate-button-active {
   border-color: #C278FD;
   color: #C278FD;
   background-image: url(./assets/meditate-active.svg);
@@ -127,11 +126,12 @@ body {
   background-size: 30px;
 }
 
-.exercise-button-active{
+.exercise-button-active {
   border-color: #FD8078;
   color: #FD8078;
   background-image: url(./assets/exercise-active.svg);
 }
+
 /* FORM INPUT FIELDS */
 .goals,
 .minutes,
@@ -228,15 +228,17 @@ img {
   margin-right: 10px;
 }
 
+.completed-meditate {
+  border-right: 5px solid #C278FD;
+  margin-right: 10px;
+}
+
 .completed-exercise {
   border-right: 5px solid #FD8078;
   margin-right: 10px;
 }
 
-.completed-meditate {
-  border-right: 5px solid #C278FD;
-  margin-right: 10px;
-}
+
 
 .category {
   margin: 0px 0px 0px 8px;
@@ -251,6 +253,7 @@ img {
 .past-goal {
   margin: 8px 0px 10px 8px;
 }
+
 /* Current Activity */
 .current-activity {
   background-color: #47434D;
@@ -280,6 +283,7 @@ img {
   font-weight: 900;
   margin: 0px 0px 25px 0px;
 }
+
 .start-timer {
   font-size: 20px;
   color: white;
@@ -288,17 +292,18 @@ img {
   border: 2.5px solid white;
   border-radius: 100%;
   background: transparent;
+  outline: none;
 }
 
-.start-study-button{
+.start-study-button {
   border-color: #B3FD78;
 }
 
-.start-meditate-button{
+.start-meditate-button {
   border-color: #C278FD;
 }
 
-.start-exercise-button{
+.start-exercise-button {
   border-color: #FD8078;
 }
 
@@ -309,6 +314,15 @@ img {
   width: 200px;
   margin: 30px 0px 50px 0px;
 }
+
+.create-new-activity {
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  width: 250px;
+  margin: 50px 0px 50px 0px;
+}
+
 /*
 .current-activity-container {
   margin: 70px 0px 70px 0px;

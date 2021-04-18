@@ -1,43 +1,41 @@
 class Activity {
-  constructor(category, description, minutes, seconds, id){
+  constructor(category, description, minutes, seconds) {
     this.category = category;
     this.description = description;
     this.minutes = minutes;
     this.seconds = seconds;
-    this.completed = null;
+    this.completed = false;
     this.id = Date.now();
   }
 
+  countdown(duration, display) {
+    startTimerBtn.disabled = true;
+    var timer = duration,
+      minutes, seconds;
+    var time = setInterval(function() {
+      minutes = parseInt(timer / 60);
+      seconds = parseInt(timer % 60);
 
-    //we need seconds to decrease by 1, and once it hits 0, minutes needs to decrease by 1
-    //when timer is 00:00
-    //window alert that
-    countdown(duration, display) {
-      startTimerBtn.disabled = true;
-      var timer = duration, minutes, seconds;
-      var time = setInterval(function () {
-          minutes = parseInt(timer / 60);
-          seconds = parseInt(timer % 60);
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
 
-          minutes = minutes < 10 ? "0" + minutes : minutes;
-          seconds = seconds < 10 ? "0" + seconds : seconds;
+      display.textContent = minutes + ":" + seconds;
 
-          display.textContent = minutes + ":" + seconds;
+      if (--timer < 0) {
+        timer = 0;
+        clearInterval(time);
+        startTimerBtn.innerText = "COMPLETE!"
+        logActivityBtn.classList.remove('hidden')
+      }
 
-          if (--timer < 0) {
-            timer = 0;
-            clearInterval(time);
-          }
+    }, 1000);
+  }
 
-      }, 1000);
-    }
+  markComplete() {
+    this.completed = true
+  }
 
-  // markComplete(){
-  // this.completed = true
-  // startTimer.innerText = "COMPLETE!"
-  // }
-
-  saveToStorage(){
-
+  saveToStorage() {
+    localStorage.setItem('savedCards', JSON.stringify(savedActivities))
   }
 }

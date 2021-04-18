@@ -6,18 +6,22 @@
   var goalInput = document.getElementById('goals');
   var minutesInput = document.getElementById('minutes');
   var secondsInput = document.getElementById('seconds');
-  var categoryError = document.getElementById('categoryError')
-  var descriptionError = document.getElementById('descriptionError')
-  var timeError = document.getElementById('timeError')
-  var startActivityBtn = document.getElementById('startActivity')
-  var newActivityForm = document.getElementById('newActivityForm')
-  var currentActivityForm = document.getElementById('currentActivityForm')
-  var countdown = document.getElementById('countdown')
-  var countdownMin = document.getElementById('minutesCountdown')
-  var countdownSec = document.getElementById('secondsCountdown')
-  var formHeader = document.getElementById('leftHeader')
-  var displayGoal = document.getElementById('displayGoal')
-  var startTimerBtn = document.getElementById('startTimer')
+  var categoryError = document.getElementById('categoryError');
+  var descriptionError = document.getElementById('descriptionError');
+  var timeError = document.getElementById('timeError');
+  var startActivityBtn = document.getElementById('startActivity');
+  var newActivityForm = document.getElementById('newActivityForm');
+  var currentActivityForm = document.getElementById('currentActivityForm');
+  var countdown = document.getElementById('countdown');
+  var countdownMin = document.getElementById('minutesCountdown');
+  var countdownSec = document.getElementById('secondsCountdown');
+  var formHeader = document.getElementById('leftHeader');
+  var displayGoal = document.getElementById('displayGoal');
+  var startTimerBtn = document.getElementById('startTimer');
+  var logActivityBtn = document.getElementById('logActivity');
+  var createNewActivityBtn = document.getElementById('createNewActivity');
+  var rightMessage = document.getElementById('rightMessage');
+  var pastActivitySection = document.getElementById('activityCard')
   var currentActivity;
   var savedActivities = [];
 
@@ -25,6 +29,8 @@
   categoryContainer.addEventListener('click', changeColor)
   startActivityBtn.addEventListener('click', startActivity)
   startTimerBtn.addEventListener('click', startCountdown)
+  logActivityBtn.addEventListener('click', logActivity)
+
 
   // EVENT HANDLERS AND GLOBAL FUNCTIONS//
   function changeColor() {
@@ -42,7 +48,7 @@
       removeColor(meditateBtn, 'meditate-button-active')
       removeColor(studyBtn, 'study-button-active')
     }
-      category = event.target.id
+    category = event.target.id
   }
 
   function addColor(button, activeClass) {
@@ -57,14 +63,13 @@
     event.preventDefault();
     var category = checkCategory();
     checkInputs(category);
-    if(category !== '' && goalInput.value !== '' && minutesInput.value !== '' && secondsInput.value !== '') {
+    if (category !== '' && goalInput.value !== '' && minutesInput.value !== '' && secondsInput.value !== '') {
       currentActivity = new Activity(category, goalInput.value, minutesInput.value, secondsInput.value)
-      savedActivities.push(currentActivity);
       changeActivityView();
       changeTimerColor();
     }
     console.log(currentActivity)
-    console.log(savedActivities)
+    // console.log(savedActivities)
   }
 
   function changeActivityView() {
@@ -72,22 +77,22 @@
     currentActivityForm.classList.remove('hidden')
     formHeader.innerText = "Current Activity";
     displayGoal.innerText = currentActivity.description;
-    if(currentActivity.minutes < 10 || currentActivity.seconds < 10){
+    if (currentActivity.minutes < 10 || currentActivity.seconds < 10) {
       countdownMin.innerText = `0${currentActivity.minutes}`;
       countdownSec.innerText = `0${currentActivity.seconds}`;
 
+    }
   }
-}
 
-function changeTimerColor() {
-  if(currentActivity.category === "Study") {
-     startTimer.classList.add("start-study-button")
-   } else if (currentActivity.category === "Meditate") {
-     startTimer.classList.add("start-meditate-button")
-   } else if (currentActivity.category === "Exercise") {
-     startTimer.classList.add("start-exercise-button")
-   }
- };
+  function changeTimerColor() {
+    if (currentActivity.category === "Study") {
+      startTimer.classList.add("start-study-button")
+    } else if (currentActivity.category === "Meditate") {
+      startTimer.classList.add("start-meditate-button")
+    } else if (currentActivity.category === "Exercise") {
+      startTimer.classList.add("start-exercise-button")
+    }
+  };
 
   function checkInputs(category) {
     if (goalInput.value === "") {
@@ -114,25 +119,66 @@ function changeTimerColor() {
     }
   }
 
-function startCountdown(){
-  var duration = (parseInt(currentActivity.minutes) * 60) + parseInt(currentActivity.seconds);
-  var display = countdown;
-  currentActivity.countdown(duration, display);
-  // currentActivity.markComplete();
-  //reset / disable start button
-  //change innertext of start button to complete!
-  //unhide log activity button
-}
+  function startCountdown() {
+    var duration = (parseInt(currentActivity.minutes) * 60) + parseInt(currentActivity.seconds);
+    var display = countdown;
+    currentActivity.countdown(duration, display);
+    currentActivity.markComplete();
+    savedActivities.push(currentActivity);
+    console.log('data model', savedActivities)
+  }
 
 
-  //create countdown function with user inputs
-  // when timer countdown ends..
-  //update data model and change this.completed to true..
+  function logActivity() {
+    hide(createNewActivityBtn, true)
+    hide(logActivityBtn, false)
+    hide(displayGoal, false)
+    hide(countdown, false)
+    hide(startTimerBtn, false)
+    hide(rightMessage, false)
+    formHeader.innerText = "Completed Activity";
+    createPastActivityCard()
+    currentActivity.saveToStorage()
+  }
 
-  //change header innertext to completed
-  //hide countdown timer
-  //show congratulatory messages (hide start)
-  //show log activity button
-  //when clicked we....
-  //show completed activity on past activities SECTION
-  //make sure it is in localStorage
+  function hide(element, hidden) {
+    if (hidden) {
+      element.classList.remove('hidden');
+    } else {
+      element.classList.add('hidden');
+    }
+  }
+
+  function createCardColor() {
+    if (currentActivity.category === 'Study') {
+      return 'completed-study'
+    } else if (currentActivity.category === 'Meditate') {
+      return 'completed-meditate'
+    } else if (currentActivity.category === 'Exercise') {
+      return 'completed-exercise'
+    }
+  }
+
+  function createPastActivityCard() {
+    pastActivitySection.classList.remove('hidden')
+    pastActivitySection.innerHTML = '';
+    var cardStyle = createCardColor();
+    for (var i = 0; i < savedActivities.length; i++) {
+      pastActivitySection.innerHTML += `<div class="activity-style ${cardStyle}" id="completedActivity">
+            <h5 class="category" id="category">${savedActivities[i].category}</h5>
+             <p class="time-logged" id="timeLogged"><span class="minute-num" id="minuteNum">${savedActivities[i].minutes}</span> MIN <span class="seconds-num" id="secondsNum">${savedActivities[i].seconds}</span> SECONDS </p>
+           </div>
+           <p class="past-goal" id="pastGoal">${savedActivities[i].description}</p>`
+    }
+  }
+
+  //access local storage
+  //parse
+  //on window load
+  //create new activity button to hide and show main form and have the cards still there
+  //README
+
+
+  //Extra stuff...
+  //emoji on complete!
+  //
