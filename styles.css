@@ -228,15 +228,17 @@ img {
   margin-right: 10px;
 }
 
+.completed-meditate {
+  border-right: 5px solid #C278FD;
+  margin-right: 10px;
+}
+
 .completed-exercise {
   border-right: 5px solid #FD8078;
   margin-right: 10px;
 }
 
-.completed-meditate {
-  border-right: 5px solid #C278FD;
-  margin-right: 10px;
-}
+
 
 .category {
   margin: 0px 0px 0px 8px;
@@ -290,6 +292,7 @@ img {
   border: 2.5px solid white;
   border-radius: 100%;
   background: transparent;
+  outline: none;
 }
 
 .start-study-button {
