@@ -1,5 +1,5 @@
 class Activity {
-  constructor(category, description, minutes, seconds, id) {
+  constructor(category, description, minutes, seconds) {
     this.category = category;
     this.description = description;
     this.minutes = minutes;
@@ -24,7 +24,8 @@ class Activity {
       if (--timer < 0) {
         timer = 0;
         clearInterval(time);
-        startTimerBtn.innerText = "COMPLETE!"
+        startTimerBtn.innerText = "COMPLETED!"
+        logActivityBtn.classList.remove('hidden')
       }
 
     }, 1000);
