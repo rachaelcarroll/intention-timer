@@ -18,6 +18,8 @@
   var formHeader = document.getElementById('leftHeader')
   var displayGoal = document.getElementById('displayGoal')
   var startTimerBtn = document.getElementById('startTimer')
+  var logActivityBtn = document.getElementById('logActivity')
+  var createNewActivityBtn = document.getElementById('createNewActivity')
   var currentActivity;
   var savedActivities = [];
 
@@ -25,6 +27,8 @@
   categoryContainer.addEventListener('click', changeColor)
   startActivityBtn.addEventListener('click', startActivity)
   startTimerBtn.addEventListener('click', startCountdown)
+  logActivityBtn.addEventListener('click', logActivity)
+
 
   // EVENT HANDLERS AND GLOBAL FUNCTIONS//
   function changeColor() {
@@ -63,7 +67,7 @@
       changeTimerColor();
     }
     console.log(currentActivity)
-    console.log(savedActivities)
+    // console.log(savedActivities)
   }
 
   function changeActivityView() {
@@ -119,16 +123,27 @@
     currentActivity.countdown(duration, display);
     currentActivity.markComplete();
     savedActivities.push(currentActivity);
-    console.log(savedActivities)
-    //reset / disable start button
-    //change innertext of start button to complete!
-    //unhide log activity button
+    console.log('data model', savedActivities)
   }
 
 
-  //create countdown function with user inputs
-  // when timer countdown ends..
-  //update data model and change this.completed to true..
+  function logActivity() {
+    hide(createNewActivityBtn, true)
+    hide(logActivityBtn, false)
+    hide(displayGoal, false)
+    hide(countdown, false)
+    hide(startTimerBtn, false)
+    formHeader.innerText = "Completed Activity";
+    // console.log('i am here')
+  }
+
+  function hide(element, hidden) {
+    if (hidden) {
+      element.classList.remove('hidden');
+    } else {
+      element.classList.add('hidden');
+    }
+  }
 
   //change header innertext to completed
   //hide countdown timer
