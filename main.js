@@ -138,6 +138,7 @@
     hide(rightMessage, false)
     formHeader.innerText = "Completed Activity";
     createPastActivityCard()
+    currentActivity.saveToStorage()
   }
 
   function hide(element, hidden) {
@@ -158,33 +159,26 @@
     }
   }
 
-
-
-
   function createPastActivityCard() {
     pastActivitySection.classList.remove('hidden')
     pastActivitySection.innerHTML = '';
     var cardStyle = createCardColor();
     for (var i = 0; i < savedActivities.length; i++) {
       pastActivitySection.innerHTML += `<div class="activity-style ${cardStyle}" id="completedActivity">
-             <h5 class="category" id="category">${savedActivities[i].category}</h5>
+            <h5 class="category" id="category">${savedActivities[i].category}</h5>
              <p class="time-logged" id="timeLogged"><span class="minute-num" id="minuteNum">${savedActivities[i].minutes}</span> MIN <span class="seconds-num" id="secondsNum">${savedActivities[i].seconds}</span> SECONDS </p>
            </div>
            <p class="past-goal" id="pastGoal">${savedActivities[i].description}</p>`
     }
-    //need to check what category the activity is .... for card color
-    //need to check if minutes AND seconds OR just minutes OR just seconds to interpolate
-    //need to interpolate the activity description
   }
 
+  //access local storage
+  //parse
+  //on window load
+  //create new activity button to hide and show main form and have the cards still there
+  //README
 
 
-
-
-  //change header innertext to completed
-  //hide countdown timer
-  //show congratulatory messages (hide start)
-  //show log activity button
-  //when clicked we....
-  //show completed activity on past activities SECTION
-  //make sure it is in localStorage
+  //Extra stuff...
+  //emoji on complete!
+  //
