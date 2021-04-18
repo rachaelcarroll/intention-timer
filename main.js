@@ -6,20 +6,21 @@
   var goalInput = document.getElementById('goals');
   var minutesInput = document.getElementById('minutes');
   var secondsInput = document.getElementById('seconds');
-  var categoryError = document.getElementById('categoryError')
-  var descriptionError = document.getElementById('descriptionError')
-  var timeError = document.getElementById('timeError')
-  var startActivityBtn = document.getElementById('startActivity')
-  var newActivityForm = document.getElementById('newActivityForm')
-  var currentActivityForm = document.getElementById('currentActivityForm')
-  var countdown = document.getElementById('countdown')
-  var countdownMin = document.getElementById('minutesCountdown')
-  var countdownSec = document.getElementById('secondsCountdown')
-  var formHeader = document.getElementById('leftHeader')
-  var displayGoal = document.getElementById('displayGoal')
-  var startTimerBtn = document.getElementById('startTimer')
-  var logActivityBtn = document.getElementById('logActivity')
-  var createNewActivityBtn = document.getElementById('createNewActivity')
+  var categoryError = document.getElementById('categoryError');
+  var descriptionError = document.getElementById('descriptionError');
+  var timeError = document.getElementById('timeError');
+  var startActivityBtn = document.getElementById('startActivity');
+  var newActivityForm = document.getElementById('newActivityForm');
+  var currentActivityForm = document.getElementById('currentActivityForm');
+  var countdown = document.getElementById('countdown');
+  var countdownMin = document.getElementById('minutesCountdown');
+  var countdownSec = document.getElementById('secondsCountdown');
+  var formHeader = document.getElementById('leftHeader');
+  var displayGoal = document.getElementById('displayGoal');
+  var startTimerBtn = document.getElementById('startTimer');
+  var logActivityBtn = document.getElementById('logActivity');
+  var createNewActivityBtn = document.getElementById('createNewActivity');
+  var rightMessage = document.getElementById('rightMessage');
   var currentActivity;
   var savedActivities = [];
 
@@ -133,8 +134,8 @@
     hide(displayGoal, false)
     hide(countdown, false)
     hide(startTimerBtn, false)
+    hide(rightMessage, false)
     formHeader.innerText = "Completed Activity";
-    // console.log('i am here')
   }
 
   function hide(element, hidden) {
@@ -144,6 +145,17 @@
       element.classList.add('hidden');
     }
   }
+
+
+  function createPastActivityCard() {
+    //need to check what category the activity is .... for card color
+    //need to check if minutes AND seconds OR just minutes OR just seconds to interpolate
+    //need to interpolate the activity description
+  }
+
+
+
+
 
   //change header innertext to completed
   //hide countdown timer
