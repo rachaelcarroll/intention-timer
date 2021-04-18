@@ -42,7 +42,7 @@
       removeColor(meditateBtn, 'meditate-button-active')
       removeColor(studyBtn, 'study-button-active')
     }
-      category = event.target.id
+    category = event.target.id
   }
 
   function addColor(button, activeClass) {
@@ -57,9 +57,8 @@
     event.preventDefault();
     var category = checkCategory();
     checkInputs(category);
-    if(category !== '' && goalInput.value !== '' && minutesInput.value !== '' && secondsInput.value !== '') {
+    if (category !== '' && goalInput.value !== '' && minutesInput.value !== '' && secondsInput.value !== '') {
       currentActivity = new Activity(category, goalInput.value, minutesInput.value, secondsInput.value)
-      savedActivities.push(currentActivity);
       changeActivityView();
       changeTimerColor();
     }
@@ -72,22 +71,22 @@
     currentActivityForm.classList.remove('hidden')
     formHeader.innerText = "Current Activity";
     displayGoal.innerText = currentActivity.description;
-    if(currentActivity.minutes < 10 || currentActivity.seconds < 10){
+    if (currentActivity.minutes < 10 || currentActivity.seconds < 10) {
       countdownMin.innerText = `0${currentActivity.minutes}`;
       countdownSec.innerText = `0${currentActivity.seconds}`;
 
+    }
   }
-}
 
-function changeTimerColor() {
-  if(currentActivity.category === "Study") {
-     startTimer.classList.add("start-study-button")
-   } else if (currentActivity.category === "Meditate") {
-     startTimer.classList.add("start-meditate-button")
-   } else if (currentActivity.category === "Exercise") {
-     startTimer.classList.add("start-exercise-button")
-   }
- };
+  function changeTimerColor() {
+    if (currentActivity.category === "Study") {
+      startTimer.classList.add("start-study-button")
+    } else if (currentActivity.category === "Meditate") {
+      startTimer.classList.add("start-meditate-button")
+    } else if (currentActivity.category === "Exercise") {
+      startTimer.classList.add("start-exercise-button")
+    }
+  };
 
   function checkInputs(category) {
     if (goalInput.value === "") {
@@ -114,15 +113,17 @@ function changeTimerColor() {
     }
   }
 
-function startCountdown(){
-  var duration = (parseInt(currentActivity.minutes) * 60) + parseInt(currentActivity.seconds);
-  var display = countdown;
-  currentActivity.countdown(duration, display);
-  // currentActivity.markComplete();
-  //reset / disable start button
-  //change innertext of start button to complete!
-  //unhide log activity button
-}
+  function startCountdown() {
+    var duration = (parseInt(currentActivity.minutes) * 60) + parseInt(currentActivity.seconds);
+    var display = countdown;
+    currentActivity.countdown(duration, display);
+    currentActivity.markComplete();
+    savedActivities.push(currentActivity);
+    console.log(savedActivities)
+    //reset / disable start button
+    //change innertext of start button to complete!
+    //unhide log activity button
+  }
 
 
   //create countdown function with user inputs
