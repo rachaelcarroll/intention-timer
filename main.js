@@ -21,6 +21,7 @@
   var logActivityBtn = document.getElementById('logActivity');
   var createNewActivityBtn = document.getElementById('createNewActivity');
   var rightMessage = document.getElementById('rightMessage');
+  var pastActivitySection = document.getElementById('activityCard')
   var currentActivity;
   var savedActivities = [];
 
@@ -136,6 +137,7 @@
     hide(startTimerBtn, false)
     hide(rightMessage, false)
     formHeader.innerText = "Completed Activity";
+    createPastActivityCard()
   }
 
   function hide(element, hidden) {
@@ -146,8 +148,30 @@
     }
   }
 
+  function createCardColor() {
+    if (currentActivity.category === 'Study') {
+      return 'completed-study'
+    } else if (currentActivity.category === 'Meditate') {
+      return 'completed-meditate'
+    } else if (currentActivity.category === 'Exercise') {
+      return 'completed-exercise'
+    }
+  }
+
+
+
 
   function createPastActivityCard() {
+    pastActivitySection.classList.remove('hidden')
+    pastActivitySection.innerHTML = '';
+    var cardStyle = createCardColor();
+    for (var i = 0; i < savedActivities.length; i++) {
+      pastActivitySection.innerHTML += `<div class="activity-style ${cardStyle}" id="completedActivity">
+             <h5 class="category" id="category">${savedActivities[i].category}</h5>
+             <p class="time-logged" id="timeLogged"><span class="minute-num" id="minuteNum">${savedActivities[i].minutes}</span> MIN <span class="seconds-num" id="secondsNum">${savedActivities[i].seconds}</span> SECONDS </p>
+           </div>
+           <p class="past-goal" id="pastGoal">${savedActivities[i].description}</p>`
+    }
     //need to check what category the activity is .... for card color
     //need to check if minutes AND seconds OR just minutes OR just seconds to interpolate
     //need to interpolate the activity description
