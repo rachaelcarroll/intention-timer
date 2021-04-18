@@ -24,7 +24,7 @@ class Activity {
       if (--timer < 0) {
         timer = 0;
         clearInterval(time);
-        startTimerBtn.innerText = "COMPLETED!"
+        startTimerBtn.innerText = "COMPLETE!"
         logActivityBtn.classList.remove('hidden')
       }
 
@@ -33,10 +33,9 @@ class Activity {
 
   markComplete() {
     this.completed = true
-
   }
 
   saveToStorage() {
-
+    localStorage.setItem('savedCards', JSON.stringify(savedActivities))
   }
 }
