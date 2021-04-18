@@ -12,18 +12,19 @@
   var startActivityBtn = document.getElementById('startActivity')
   var newActivityForm = document.getElementById('newActivityForm')
   var currentActivityForm = document.getElementById('currentActivityForm')
+  var countdown = document.getElementById('countdown')
   var countdownMin = document.getElementById('minutesCountdown')
   var countdownSec = document.getElementById('secondsCountdown')
   var formHeader = document.getElementById('leftHeader')
   var displayGoal = document.getElementById('displayGoal')
-  // var startTimer = document.getElementById('startTimer')
-  var currentActivity = null;
+  var startTimerBtn = document.getElementById('startTimer')
+  var currentActivity;
   var savedActivities = [];
 
   // EVENT LISTENERS //
   categoryContainer.addEventListener('click', changeColor)
   startActivityBtn.addEventListener('click', startActivity)
-  // startTimer.addEventListener('click', startCountdown)
+  startTimerBtn.addEventListener('click', startCountdown)
 
   // EVENT HANDLERS AND GLOBAL FUNCTIONS//
   function changeColor() {
@@ -53,7 +54,7 @@
   }
 
   function startActivity() {
-    event.preventDefault()
+    event.preventDefault();
     var category = checkCategory();
     checkInputs(category);
     if(category !== '' && goalInput.value !== '' && minutesInput.value !== '' && secondsInput.value !== '') {
@@ -70,10 +71,11 @@
     newActivityForm.classList.add('hidden')
     currentActivityForm.classList.remove('hidden')
     formHeader.innerText = "Current Activity";
-    displayGoal.innerText = goalInput.value;
-    if(minutesInput.value < 10 || secondsInput.value < 10){
-      countdownSec.innerText = `0${secondsInput.value}`;
-      countdownMin.innerText = `0${minutesInput.value}`;
+    displayGoal.innerText = currentActivity.description;
+    if(currentActivity.minutes < 10 || currentActivity.seconds < 10){
+      countdownMin.innerText = `0${currentActivity.minutes}`;
+      countdownSec.innerText = `0${currentActivity.seconds}`;
+
   }
 }
 
@@ -86,7 +88,6 @@ function changeTimerColor() {
      startTimer.classList.add("start-exercise-button")
    }
  };
-
 
   function checkInputs(category) {
     if (goalInput.value === "") {
@@ -112,3 +113,26 @@ function changeTimerColor() {
       return 'no category selected'
     }
   }
+
+function startCountdown(){
+  var duration = (parseInt(currentActivity.minutes) * 60) + parseInt(currentActivity.seconds);
+  var display = countdown;
+  currentActivity.countdown(duration, display);
+  // currentActivity.markComplete();
+  //reset / disable start button
+  //change innertext of start button to complete!
+  //unhide log activity button
+}
+
+
+  //create countdown function with user inputs
+  // when timer countdown ends..
+  //update data model and change this.completed to true..
+
+  //change header innertext to completed
+  //hide countdown timer
+  //show congratulatory messages (hide start)
+  //show log activity button
+  //when clicked we....
+  //show completed activity on past activities SECTION
+  //make sure it is in localStorage
