@@ -25,11 +25,14 @@
   var currentActivity;
   var savedActivities = [];
 
+
   // EVENT LISTENERS //
+  // window.addEventListener('load', retrieveFromStorage)
   categoryContainer.addEventListener('click', changeColor)
   startActivityBtn.addEventListener('click', startActivity)
   startTimerBtn.addEventListener('click', startCountdown)
   logActivityBtn.addEventListener('click', logActivity)
+  createNewActivityBtn.addEventListener('click', createNewActivity)
 
 
   // EVENT HANDLERS AND GLOBAL FUNCTIONS//
@@ -172,13 +175,42 @@
     }
   }
 
-  //access local storage
-  //parse
+function retrieveFromStorage(){
+  event.preventDefault();
+  if(localStorage.length > 0){
+    hide(rightMessage, false)
+  }
+  storedActivities = JSON.parse(localStorage.getItem('savedCards'));
+  for(var i = 0; i < storedActivities.length; i++) {
+    savedActivities.push(storedActivities[i]);
+  }
+  createPastActivityCard();
+}
+
+
+function createNewActivity(){
+  retrieveFromStorage();
+}
+//
+// function resetInputs(){
+//   goalInput.value = '';
+//   minutesInput.value = '';
+//   secondsInput.value = '';
+//   // removeColor(studyBtn, 'study-button-active')
+//   // removeColor(exerciseBtn, 'exercise-button-active')
+//   // removeColor(meditateBtn, 'meditate-button-active')
+// }
+  //access local storage and for loop it.
+  //parse every index position of the localstorage array
+  //if data model has something, push it in
   //on window load
   //create new activity button to hide and show main form and have the cards still there
   //README
 
+  //run through
 
-  //Extra stuff...
-  //emoji on complete!
-  //
+
+  //   hide(newActivityForm, true);
+  //   formHeader.innerText = "New Activity";
+  //   hide(createNewActivityBtn, false);
+  //   resetInputs();
