@@ -27,7 +27,7 @@
 
 
   // EVENT LISTENERS //
-  // window.addEventListener('load', retrieveFromStorage)
+   window.addEventListener('load', createPastActivityCard)
   categoryContainer.addEventListener('click', changeColor)
   startActivityBtn.addEventListener('click', startActivity)
   startTimerBtn.addEventListener('click', startCountdown)
@@ -70,9 +70,8 @@
       currentActivity = new Activity(category, goalInput.value, minutesInput.value, secondsInput.value)
       changeActivityView();
       changeTimerColor();
+      console.log(currentActivity)
     }
-    console.log(currentActivity)
-    // console.log(savedActivities)
   }
 
   function changeActivityView() {
@@ -83,7 +82,6 @@
     if (currentActivity.minutes < 10 || currentActivity.seconds < 10) {
       countdownMin.innerText = `0${currentActivity.minutes}`;
       countdownSec.innerText = `0${currentActivity.seconds}`;
-
     }
   }
 
@@ -133,6 +131,7 @@
 
 
   function logActivity() {
+    event.preventDefault();
     hide(createNewActivityBtn, true)
     hide(logActivityBtn, false)
     hide(displayGoal, false)
@@ -140,7 +139,7 @@
     hide(startTimerBtn, false)
     hide(rightMessage, false)
     formHeader.innerText = "Completed Activity";
-    createPastActivityCard()
+    createPastActivityCard();
     currentActivity.saveToStorage()
   }
 
@@ -153,20 +152,22 @@
   }
 
   function createCardColor() {
-    if (currentActivity.category === 'Study') {
+    for( var i = 0; i < savedActivities.length; i++){
+    if (savedActivities[i].category === 'Study') {
       return 'completed-study'
-    } else if (currentActivity.category === 'Meditate') {
+    } else if (savedActivities[i].category === 'Meditate') {
       return 'completed-meditate'
-    } else if (currentActivity.category === 'Exercise') {
+    } else if (savedActivities[i].category === 'Exercise') {
       return 'completed-exercise'
     }
+  }
   }
 
   function createPastActivityCard() {
     pastActivitySection.classList.remove('hidden')
     pastActivitySection.innerHTML = '';
-    var cardStyle = createCardColor();
     for (var i = 0; i < savedActivities.length; i++) {
+      var cardStyle = createCardColor();
       pastActivitySection.innerHTML += `<div class="activity-style ${cardStyle}" id="completedActivity">
             <h5 class="category" id="category">${savedActivities[i].category}</h5>
              <p class="time-logged" id="timeLogged"><span class="minute-num" id="minuteNum">${savedActivities[i].minutes}</span> MIN <span class="seconds-num" id="secondsNum">${savedActivities[i].seconds}</span> SECONDS </p>
@@ -177,19 +178,41 @@
 
 function retrieveFromStorage(){
   event.preventDefault();
-  if(localStorage.length > 0){
-    hide(rightMessage, false)
-  }
-  storedActivities = JSON.parse(localStorage.getItem('savedCards'));
-  for(var i = 0; i < storedActivities.length; i++) {
-    savedActivities.push(storedActivities[i]);
+  console.log(localStorage);
+  pastActivitySection.innerHTML = '';
+  for(var i = 0; i < localStorage.length; i++) {
+    var storedActivities = JSON.parse(localStorage.getItem('savedCards'));
+    storedActivities = new Activity(storedActivities.category, storedActivities.description, storedActivities.minutes, storedActivities.seconds);
+    savedActivities.push(storedActivities);
+    console.log("after", savedActivities)
   }
   createPastActivityCard();
+  hide(rightMessage, false);
 }
 
+// function renderCards() {
+//   hide(rightMessage, false);
+//   pastActivitySection.classList.remove('hidden')
+//   pastActivitySection.innerHTML = '';
+//   for (var i = 0; i < savedActivities.length; i++) {
+//     pastActivitySection.innerHTML += `<div class="activity-style ${cardStyle}" id="completedActivity">
+//           <h5 class="category" id="category">${savedActivities[i].category}</h5>
+//            <p class="time-logged" id="timeLogged"><span class="minute-num" id="minuteNum">${savedActivities[i].minutes}</span> MIN <span class="seconds-num" id="secondsNum">${savedActivities[i].seconds}</span> SECONDS </p>
+//          </div>
+//          <p class="past-goal" id="pastGoal">${savedActivities[i].description}</p>`
+//   }
+// }
+//check local storage to see if it has data
+//if it has data, parse it
+//after we run through the loop, we want to  create a new activity and push the data
 
 function createNewActivity(){
-  retrieveFromStorage();
+  window.addEventListener('load', createPastActivityCard())
+  hide(newActivityForm, true);
+  hide(createNewActivityBtn, false);
+  formHeader.innerText = "New Activity";
+  // newActivityForm.reset();
+  console.log("button click", savedActivities)
 }
 //
 // function resetInputs(){
@@ -208,9 +231,3 @@ function createNewActivity(){
   //README
 
   //run through
-
-
-  //   hide(newActivityForm, true);
-  //   formHeader.innerText = "New Activity";
-  //   hide(createNewActivityBtn, false);
-  //   resetInputs();
