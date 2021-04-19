@@ -24,7 +24,8 @@ class Activity {
       if (--timer < 0) {
         timer = 0;
         clearInterval(time);
-        startTimerBtn.innerText = "COMPLETE!"
+        var partyEmoji = String.fromCodePoint(0x1F973)
+        startTimerBtn.innerText = "COMPLETE!" + partyEmoji;
         logActivityBtn.classList.remove('hidden')
       }
 
