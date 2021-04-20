@@ -81,6 +81,10 @@
       countdownMin.innerText = `0${currentActivity.minutes}`;
       countdownSec.innerText = `0${currentActivity.seconds}`;
     }
+    if (currentActivity.minutes > 10 || currentActivity.seconds > 10){
+      countdownMin.innerText = `${currentActivity.minutes}`;
+      countdownSec.innerText = `${currentActivity.seconds}`
+    }
   }
 
   function changeTimerColor() {
