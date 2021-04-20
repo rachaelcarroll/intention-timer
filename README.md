@@ -1,6 +1,8 @@
 ## Overview
 Intention Timer is an application which allows users to track and manage activities. `Study`, `Meditate`, and `Exercise` are three categories a user may choose to help organize their goals. User can input a desired length of time and use the built in countdown timer to do the work for them! User can leave the application and return without losing their previous logged activities.
 
+[View Deployed Page Here!](https://rachaelcarroll.github.io/intention-timer/)
+
 ## Functionality
 -   When user visits [Intention Timer](https://rachaelcarroll.github.io/intention-timer/) they will see a new activity form on the left where they can select a category, type a description, and select minutes and seconds. The right shows a past activity section displaying text that they do not have any saved activities.
 
