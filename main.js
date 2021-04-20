@@ -27,7 +27,7 @@
 
 
   // EVENT LISTENERS //
-   window.addEventListener('load', createPastActivityCard)
+   window.addEventListener('load', retrieveFromStorage)
   categoryContainer.addEventListener('click', changeColor)
   startActivityBtn.addEventListener('click', startActivity)
   startTimerBtn.addEventListener('click', startCountdown)
@@ -164,30 +164,34 @@
   }
 
   function createPastActivityCard() {
-    pastActivitySection.classList.remove('hidden')
+    // pastActivitySection.classList.remove('hidden')
     pastActivitySection.innerHTML = '';
     for (var i = 0; i < savedActivities.length; i++) {
       var cardStyle = createCardColor();
-      pastActivitySection.innerHTML += `<div class="activity-style ${cardStyle}" id="completedActivity">
-            <h5 class="category" id="category">${savedActivities[i].category}</h5>
+      pastActivitySection.innerHTML +=
+
+          `<div class="past-activity-card" id="pastActivityCard">
+           <div class="activity-style ${cardStyle}" id="completedActivity">
+             <h5 class="category" id="category">${savedActivities[i].category}</h5>
              <p class="time-logged" id="timeLogged"><span class="minute-num" id="minuteNum">${savedActivities[i].minutes}</span> MIN <span class="seconds-num" id="secondsNum">${savedActivities[i].seconds}</span> SECONDS </p>
            </div>
-           <p class="past-goal" id="pastGoal">${savedActivities[i].description}</p>`
+           <p class="past-goal" id="pastGoal">${savedActivities[i].description}</p>
+           </div>`
     }
   }
 
 function retrieveFromStorage(){
-  event.preventDefault();
+  // event.preventDefault();
   console.log(localStorage);
   pastActivitySection.innerHTML = '';
-  for(var i = 0; i < localStorage.length; i++) {
-    var storedActivities = JSON.parse(localStorage.getItem('savedCards'));
-    storedActivities = new Activity(storedActivities.category, storedActivities.description, storedActivities.minutes, storedActivities.seconds);
-    savedActivities.push(storedActivities);
+  var storedActivities = JSON.parse(localStorage.getItem('savedCards'));
+  for(var i = 0; i < storedActivities.length; i++) {
+    // storedActivities = new Activity(storedActivities.category, storedActivities.description, storedActivities.minutes, storedActivities.seconds);
+    savedActivities.push(storedActivities[i]);
     console.log("after", savedActivities)
+    createPastActivityCard();
   }
-  createPastActivityCard();
-  hide(rightMessage, false);
+
 }
 
 // function renderCards() {
@@ -207,11 +211,10 @@ function retrieveFromStorage(){
 //after we run through the loop, we want to  create a new activity and push the data
 
 function createNewActivity(){
-  window.addEventListener('load', createPastActivityCard())
   hide(newActivityForm, true);
   hide(createNewActivityBtn, false);
   formHeader.innerText = "New Activity";
-  // newActivityForm.reset();
+  newActivityForm.reset();
   console.log("button click", savedActivities)
 }
 //
