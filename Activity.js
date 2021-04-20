@@ -39,4 +39,6 @@ class Activity {
   saveToStorage() {
     localStorage.setItem('savedCards', JSON.stringify(savedActivities))
   }
+
+
 }
