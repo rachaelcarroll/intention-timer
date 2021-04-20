@@ -27,7 +27,7 @@
 
 
   // EVENT LISTENERS //
-   window.addEventListener('load', retrieveFromStorage)
+  window.addEventListener('load', retrieveFromStorage)
   categoryContainer.addEventListener('click', changeColor)
   startActivityBtn.addEventListener('click', startActivity)
   startTimerBtn.addEventListener('click', startCountdown)
@@ -152,16 +152,16 @@
   }
 
   function createCardColor() {
+    for (var i = 0; i < savedActivities.length; i++) {
+      if (savedActivities[i].category === 'Study') {
+        return 'completed-study'
+      } else if (savedActivities[i].category === 'Meditate') {
+        return 'completed-meditate'
+      } else if (savedActivities[i].category === 'Exercise') {
+        return 'completed-exercise'
+      }
 
-    for( var i = 0; i < savedActivities.length; i++){
-    if (savedActivities[i].category === 'Study') {
-      return 'completed-study'
-    } else if (savedActivities[i].category === 'Meditate') {
-      return 'completed-meditate'
-    } else if (savedActivities[i].category === 'Exercise') {
-      return 'completed-exercise'
     }
-  }
   }
 
   function createPastActivityCard() {
@@ -180,6 +180,7 @@
     }
   }
 
+
 function retrieveFromStorage(){
   pastActivitySection.innerHTML = '';
   var storedActivities = JSON.parse(localStorage.getItem('savedCards'));
@@ -195,9 +196,8 @@ hide(rightMessage, false)
 
 function createNewActivity(){
    window.addEventListener('load', retrieveFromStorage);
-  // hide(newActivityForm, true);
-  // hide(createNewActivityBtn, false);
-  hide(rightMessage, false)
-  formHeader.innerText = "New Activity";
-  // newActivityForm.reset();
+   hide(rightMessage, false)
+   formHeader.innerText = "New Activity";
 }
+
+
