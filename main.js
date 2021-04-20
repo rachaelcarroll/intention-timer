@@ -25,7 +25,6 @@
   var currentActivity;
   var savedActivities = [];
 
-
   // EVENT LISTENERS //
   window.addEventListener('load', retrieveFromStorage)
   categoryContainer.addEventListener('click', changeColor)
@@ -33,7 +32,6 @@
   startTimerBtn.addEventListener('click', startCountdown)
   logActivityBtn.addEventListener('click', logActivity)
   createNewActivityBtn.addEventListener('click', createNewActivity)
-
 
   // EVENT HANDLERS AND GLOBAL FUNCTIONS//
   function changeColor() {
@@ -129,7 +127,6 @@
     console.log('data model', savedActivities)
   }
 
-
   function logActivity() {
     event.preventDefault();
     hide(createNewActivityBtn, true)
@@ -160,16 +157,15 @@
       } else if (savedActivities[i].category === 'Exercise') {
         return 'completed-exercise'
       }
-
     }
   }
 
   function createPastActivityCard() {
     pastActivitySection.innerHTML = '';
+    var cardStyle = createCardColor();
     for (var i = 0; i < savedActivities.length; i++) {
-      var cardStyle = createCardColor();
       pastActivitySection.innerHTML +=
-          `<section class="activity-card" id="activityCard">
+        `<section class="activity-card" id="activityCard">
            <div class="activity-style ${cardStyle}" id="completedActivity">
              <h5 class="category" id="category">${savedActivities[i].category}</h5>
              <p class="time-logged" id="timeLogged"><span class="minute-num" id="minuteNum">${savedActivities[i].minutes}</span> MIN <span class="seconds-num" id="secondsNum">${savedActivities[i].seconds}</span> SECONDS </p>
@@ -180,24 +176,24 @@
     }
   }
 
-
-function retrieveFromStorage(){
-  pastActivitySection.innerHTML = '';
-  var storedActivities = JSON.parse(localStorage.getItem('savedCards'));
-  if (storedActivities !== null){
-  for(var i = 0; i < storedActivities.length; i++) {
-    var newActivity = new Activity(storedActivities[i].category, storedActivities[i].description, storedActivities[i].minutes, storedActivities[i].seconds);
-    savedActivities.push(newActivity);
-    createPastActivityCard();
+  function retrieveFromStorage() {
+    pastActivitySection.innerHTML = '';
+    if (localStorage.length < 1) {
+      hide(rightMessage, true)
+    }
+    var storedActivities = JSON.parse(localStorage.getItem('savedCards'));
+    if (storedActivities !== null) {
+      for (var i = 0; i < storedActivities.length; i++) {
+        var storedActivity = new Activity(storedActivities[i].category, storedActivities[i].description, storedActivities[i].minutes, storedActivities[i].seconds);
+        savedActivities.push(storedActivity);
+        hide(rightMessage, false)
+        createPastActivityCard();
+      }
+    }
   }
-}
-hide(rightMessage, false)
-}
 
-function createNewActivity(){
-   window.addEventListener('load', retrieveFromStorage);
-   hide(rightMessage, false)
-   formHeader.innerText = "New Activity";
-}
-
-
+  function createNewActivity() {
+    window.addEventListener('load', retrieveFromStorage);
+    hide(rightMessage, false)
+    formHeader.innerText = "New Activity";
+  }
