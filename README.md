@@ -20,7 +20,7 @@ Intention Timer is an application which allows users to track and manage activit
 ![img](assets/saved-view.png)
 
 ### Contributors
-The HTML, CSS, and Javascript for Intention Timer was written by [Rachael Carroll](https://github.com/rachaelcarroll),[Sydney Bear](https://github.com/sydnerd), and [Fara Akhatova](https://github.com/Fakhatova), frontend engineering students at [Turing School of Software & Design](https://turing.edu/).
+The HTML, CSS, and Javascript for Intention Timer was written by [Rachael Carroll](https://github.com/rachaelcarroll), [Sydney Bear](https://github.com/sydnerd), and [Fara Akhatova](https://github.com/Fakhatova), frontend engineering students at [Turing School of Software & Design](https://turing.edu/).
 
 ### Languages
 * HTML
