@@ -148,25 +148,25 @@
     }
   }
 
-  function createCardColor() {
-    for (var i = 0; i < savedActivities.length; i++) {
+  function createCardColor(i) {
+      var color;
       if (savedActivities[i].category === 'Study') {
-        return 'completed-study'
+        color = 'completed-study'
       } else if (savedActivities[i].category === 'Meditate') {
-        return 'completed-meditate'
+        color = 'completed-meditate'
       } else if (savedActivities[i].category === 'Exercise') {
-        return 'completed-exercise'
+        color = 'completed-exercise'
       }
+      return color
     }
-  }
 
   function createPastActivityCard() {
     pastActivitySection.innerHTML = '';
-    var cardStyle = createCardColor();
     for (var i = 0; i < savedActivities.length; i++) {
+      var color = createCardColor(i);
       pastActivitySection.innerHTML +=
         `<section class="activity-card" id="activityCard">
-           <div class="activity-style ${cardStyle}" id="completedActivity">
+           <div class="activity-style ${color}" id="completedActivity">
              <h5 class="category" id="category">${savedActivities[i].category}</h5>
              <p class="time-logged" id="timeLogged"><span class="minute-num" id="minuteNum">${savedActivities[i].minutes}</span> MIN <span class="seconds-num" id="secondsNum">${savedActivities[i].seconds}</span> SECONDS </p>
            </div>
