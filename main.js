@@ -21,7 +21,7 @@
   var logActivityBtn = document.getElementById('logActivity');
   var createNewActivityBtn = document.getElementById('createNewActivity');
   var rightMessage = document.getElementById('rightMessage');
-  var pastActivitySection = document.getElementById('activityCard')
+  var pastActivitySection = document.getElementById('activityCardContainer')
   var currentActivity;
   var savedActivities = [];
 
@@ -152,6 +152,7 @@
   }
 
   function createCardColor() {
+
     for( var i = 0; i < savedActivities.length; i++){
     if (savedActivities[i].category === 'Study') {
       return 'completed-study'
@@ -164,73 +165,39 @@
   }
 
   function createPastActivityCard() {
-    // pastActivitySection.classList.remove('hidden')
     pastActivitySection.innerHTML = '';
     for (var i = 0; i < savedActivities.length; i++) {
       var cardStyle = createCardColor();
       pastActivitySection.innerHTML +=
-
-          `<div class="past-activity-card" id="pastActivityCard">
+          `<section class="activity-card" id="activityCard">
            <div class="activity-style ${cardStyle}" id="completedActivity">
              <h5 class="category" id="category">${savedActivities[i].category}</h5>
              <p class="time-logged" id="timeLogged"><span class="minute-num" id="minuteNum">${savedActivities[i].minutes}</span> MIN <span class="seconds-num" id="secondsNum">${savedActivities[i].seconds}</span> SECONDS </p>
            </div>
            <p class="past-goal" id="pastGoal">${savedActivities[i].description}</p>
-           </div>`
+           </section>
+        `
     }
   }
 
 function retrieveFromStorage(){
-  // event.preventDefault();
-  console.log(localStorage);
   pastActivitySection.innerHTML = '';
   var storedActivities = JSON.parse(localStorage.getItem('savedCards'));
+  if (storedActivities !== null){
   for(var i = 0; i < storedActivities.length; i++) {
-    // storedActivities = new Activity(storedActivities.category, storedActivities.description, storedActivities.minutes, storedActivities.seconds);
-    savedActivities.push(storedActivities[i]);
-    console.log("after", savedActivities)
+    var newActivity = new Activity(storedActivities[i].category, storedActivities[i].description, storedActivities[i].minutes, storedActivities[i].seconds);
+    savedActivities.push(newActivity);
     createPastActivityCard();
   }
-
 }
-
-// function renderCards() {
-//   hide(rightMessage, false);
-//   pastActivitySection.classList.remove('hidden')
-//   pastActivitySection.innerHTML = '';
-//   for (var i = 0; i < savedActivities.length; i++) {
-//     pastActivitySection.innerHTML += `<div class="activity-style ${cardStyle}" id="completedActivity">
-//           <h5 class="category" id="category">${savedActivities[i].category}</h5>
-//            <p class="time-logged" id="timeLogged"><span class="minute-num" id="minuteNum">${savedActivities[i].minutes}</span> MIN <span class="seconds-num" id="secondsNum">${savedActivities[i].seconds}</span> SECONDS </p>
-//          </div>
-//          <p class="past-goal" id="pastGoal">${savedActivities[i].description}</p>`
-//   }
-// }
-//check local storage to see if it has data
-//if it has data, parse it
-//after we run through the loop, we want to  create a new activity and push the data
+hide(rightMessage, false)
+}
 
 function createNewActivity(){
-  hide(newActivityForm, true);
-  hide(createNewActivityBtn, false);
+   window.addEventListener('load', retrieveFromStorage);
+  // hide(newActivityForm, true);
+  // hide(createNewActivityBtn, false);
+  hide(rightMessage, false)
   formHeader.innerText = "New Activity";
-  newActivityForm.reset();
-  console.log("button click", savedActivities)
+  // newActivityForm.reset();
 }
-//
-// function resetInputs(){
-//   goalInput.value = '';
-//   minutesInput.value = '';
-//   secondsInput.value = '';
-//   // removeColor(studyBtn, 'study-button-active')
-//   // removeColor(exerciseBtn, 'exercise-button-active')
-//   // removeColor(meditateBtn, 'meditate-button-active')
-// }
-  //access local storage and for loop it.
-  //parse every index position of the localstorage array
-  //if data model has something, push it in
-  //on window load
-  //create new activity button to hide and show main form and have the cards still there
-  //README
-
-  //run through
